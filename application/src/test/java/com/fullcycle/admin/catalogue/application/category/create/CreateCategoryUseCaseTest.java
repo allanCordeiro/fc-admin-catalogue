@@ -3,6 +3,7 @@ package com.fullcycle.admin.catalogue.application.category.create;
 
 import com.fullcycle.admin.catalogue.domain.category.CategoryGateway;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,12 @@ public class CreateCategoryUseCaseTest {
 
     @Mock
     private CategoryGateway categoryGateway;
+
+    @BeforeEach
+    void cleanUp() {
+        Mockito.reset(categoryGateway);
+    }
+
     @Test
     public void givenAValidCommand_whenCallsCreateCategory_shouldReturnCategoryId() {
         final var expectedName = "Filmes";
